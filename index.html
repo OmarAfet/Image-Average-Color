@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="index.js"></script>
+		<title>Image Average Color</title>
+	</head>
+	<body class="bg-gray-100 py-8">
+		<div class="max-w-2xl mx-auto p-8 bg-white rounded shadow">
+			<h1 class="text-3xl mb-4">Image Average Color</h1>
+			<div class="border-2 border-[#cccccc] border-dashed rounded p-5 text-center cursor-pointer" id="dropZone">
+				<span class="text-gray-500">Drag and drop an image here or</span><br />
+				<button class="mt-2 px-4 py-2 bg-gray-300 text-gray-700 rounded">Choose Image</button>
+			</div>
+			<div id="preview" class="hidden">
+				<h2 class="text-xl mb-2">Preview</h2>
+				<img id="previewImage" class="max-w-full mb-4" />
+			</div>
+			<div id="result" class="hidden">
+				<h2 class="text-xl mb-2">Average Color</h2>
+				<div id="colorBox" class="w-12 h-12 rounded shadow mb-4"></div>
+				<p><strong>RGB:</strong> <span id="rgbValue"></span> <button id="copyRGB" class="px-2 py-1 bg-gray-300 text-gray-700 rounded">Copy</button></p>
+				<p><strong>HEX:</strong> <span id="hexValue"></span> <button id="copyHex" class="px-2 py-1 bg-gray-300 text-gray-700 rounded">Copy</button></p>
+				<p><strong>HSV:</strong> <span id="hsvValue"></span> <button id="copyHSV" class="px-2 py-1 bg-gray-300 text-gray-700 rounded">Copy</button></p>
+			</div>
+		</div>
+	</body>
+</html>
