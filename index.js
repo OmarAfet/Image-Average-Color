@@ -62,6 +62,16 @@ document.addEventListener("DOMContentLoaded", function () {
 		handleFile(file);
 	}
 
+	function handlePaste(e) {
+		const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+		for (const item of items) {
+			if (item.kind === "file" && item.type.indexOf("image/") !== -1) {
+				const file = item.getAsFile();
+				handleFile(file);
+			}
+		}
+	}
+
 	function handleChooseImage() {
 		const input = document.createElement("input");
 		input.type = "file";
@@ -130,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 	}
 
+	document.addEventListener("paste", handlePaste);
 	dropZone.addEventListener("dragover", (e) => e.preventDefault());
 	dropZone.addEventListener("drop", handleDrop);
 	dropZone.addEventListener("click", handleChooseImage);
